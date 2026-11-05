@@ -73,15 +73,14 @@ const publicationTypeButtons = [...document.querySelectorAll('[data-pub-type]')]
 const publicationGroups = Object.entries(publications);
 let publicationType = 'all';
 
-document.querySelector('#publication-range').textContent = `${publicationGroups.map(([name]) => `${name} ${publicationRange[name] ? `${publicationRange[name]}년 이후` : '전체'}`).join(' · ')} 실적을 싣는다.`;
 publicationYear.innerHTML = `<option value="">전체 연도</option>${[...new Set(publicationGroups.flatMap(([, items]) => items.map((item) => item.year)))].sort((a, b) => b - a).map((year) => `<option value="${year}">${year}</option>`).join('')}`;
 
 function renderPublication(item, number) {
   const href = `./publications/${item.id}.html`;
   const media = item.image ? `<a class="publication-media has-image" href="${href}" tabindex="-1" aria-hidden="true"><img src="${item.image}" alt="" loading="lazy" /></a>` : '';
   const links = [
-    item.doi ? `<a class="publication-link doi-icon-link" href="https://doi.org/${item.doi}" target="_blank" rel="noopener" title="doi.org/${item.doi}"><img class="publication-link-icon" src="./newDOIicon.jpg" alt="" />DOI</a>` : '',
-    item.pdf ? `<a class="publication-link pdf-icon-link" href="${item.pdf}" target="_blank" rel="noopener"><img class="publication-link-icon" src="./PDF대체icon.jpg" alt="" />PDF</a>` : (item.url && !item.doi ? `<a class="publication-link" href="${item.url}" target="_blank" rel="noopener">원문 페이지 ↗</a>` : ''),
+    item.doi ? `<a class="publication-link" href="https://doi.org/${item.doi}" target="_blank" rel="noopener" title="doi.org/${item.doi}">DOI <span aria-hidden="true">↗</span></a>` : '',
+    item.pdf ? `<a class="publication-link" href="${item.pdf}" target="_blank" rel="noopener">PDF <span aria-hidden="true">↓</span></a>` : (item.url && !item.doi ? `<a class="publication-link" href="${item.url}" target="_blank" rel="noopener">원문 페이지 ↗</a>` : ''),
     `<a class="card-link" href="${href}">자세히 보기 <span aria-hidden="true">↗</span></a>`,
   ].join('');
   return `<article class="publication-item${item.image ? '' : ' no-media'}"><span>${String(number).padStart(2, '0')}</span>${media}<div class="publication-item-content"><p class="publication-title"><a href="${href}">${item.title}</a></p><p class="publication-meta">${item.cite}</p><div class="publication-links">${links}</div></div></article>`;

@@ -186,7 +186,8 @@ h2 span { color: var(--gold); }
 .publication-item-content { display: flex; flex-direction: column; gap: 8px; }
 .publication-item p { margin: 0; color: var(--ink); font-size: .92rem; line-height: 1.55; overflow-wrap: anywhere; }
 .publication-meta { color: var(--subtle); font-size: .76rem; line-height: 1.45; }
-.publication-link { display: inline-flex; align-items: center; gap: 7px; min-height: 34px; padding: 5px 12px 5px 9px; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink); font-size: .76rem; font-weight: 500; line-height: 1; text-decoration: none; transition: color .16s var(--ease), border-color .16s var(--ease), background-color .16s var(--ease); }
+.publication-link { display: inline-flex; align-items: center; gap: 5px; min-height: 34px; padding: 5px 13px; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink); font-size: .76rem; font-weight: 500; line-height: 1; text-decoration: none; transition: color .16s var(--ease), border-color .16s var(--ease), background-color .16s var(--ease); }
+.publication-link span { color: var(--gold); }
 .publication-link:hover, .publication-link:focus-visible { border-color: var(--gold); background: rgba(125,211,252,.12); }
 .content-placeholder-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .content-placeholder { min-height: 270px; padding: 28px; border: 1px solid var(--line); background: var(--bg-soft); }
@@ -226,11 +227,7 @@ a.publication-media { display: block; }
 .publication-title a:hover, .publication-title a:focus-visible { color: var(--gold); }
 .publication-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; font-size: .76rem; }
 .publication-links .card-link { margin: 0; padding: 0 0 0 4px; }
-.publication-link-icon { display: block; width: 18px; height: 18px; object-fit: contain; }
-.doi-icon-link .publication-link-icon { clip-path: circle(45% at 50% 50%); filter: hue-rotate(-8deg) saturate(.6) brightness(1.5); }
-.pdf-icon-link .publication-link-icon { filter: invert(1) hue-rotate(180deg) brightness(1.35); }
 /* 연구실적 검색·연도·유형 (2026-09-21) — 박스 대신 헤더 내비와 같은 하이라인·밑줄 언어 */
-.publication-range { margin: 0; color: var(--muted); font-size: .9rem; }
 .publication-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0 28px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .publication-toolbar + .publication-list .publication-group:first-child { border-top: 0; }
 .publication-search { display: flex; flex: 1 1 260px; min-width: 0; align-items: center; gap: 10px; min-height: 56px; color: var(--subtle); box-shadow: inset 0 -2px 0 transparent; transition: color .16s var(--ease), box-shadow .16s var(--ease); }
@@ -362,6 +359,8 @@ a.publication-media { display: block; }
 .intro-partners { margin: 18px 0 0; color: var(--muted); font-size: .92rem; line-height: 1.7; }
 .intro-partners strong { display: block; margin-bottom: 4px; color: var(--gold); font-size: .78rem; font-weight: 500; letter-spacing: .04em; }
 .member-fields { margin: -10px 0 22px; color: var(--muted); font-size: .92rem; line-height: 1.65; }
+.member-fields i { font-style: normal; white-space: nowrap; }
+.member-fields span { display: block; margin-bottom: 4px; color: var(--subtle); font-size: .76rem; font-weight: 600; letter-spacing: .04em; }
 .partner-logos { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 24px; }
 .partner-logos img { height: 52px; width: auto; max-width: 180px; object-fit: contain; background: #fff; border-radius: 2px; }
 a.research-media { display: block; }
