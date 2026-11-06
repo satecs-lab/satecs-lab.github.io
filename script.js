@@ -57,8 +57,7 @@ function renderProjects(filter = 'all') {
 
 document.querySelectorAll('[data-filter]').forEach((button) => {
   button.addEventListener('click', () => {
-    document.querySelectorAll('[data-filter]').forEach((item) => item.classList.remove('is-active'));
-    button.classList.add('is-active');
+    document.querySelectorAll('[data-filter]').forEach((item) => { item.classList.toggle('is-active', item === button); item.setAttribute('aria-pressed', String(item === button)); });
     renderProjects(button.dataset.filter);
   });
 });
@@ -87,7 +86,8 @@ function renderPublication(item, number) {
 }
 
 function renderPublications() {
-  const query = publicationSearch.value.trim().toLowerCase().replace(/\s+/g, '');
+  const normalize = (text) => text.toLowerCase().replace(/[\s\-‐‑–—·]+/g, '');
+  const query = normalize(publicationSearch.value.trim());
   const year = publicationYear.value;
   const filtering = Boolean(query || year || publicationType !== 'all');
   let shown = 0;
@@ -95,7 +95,7 @@ function renderPublications() {
   publicationList.innerHTML = publicationGroups.map(([name, items], groupIndex) => {
     total += items.length;
     if (publicationType !== 'all' && name !== publicationType) return '';
-    const visible = items.filter((item) => (!year || item.year === year) && (!query || `${item.title} ${item.cite}`.toLowerCase().replace(/\s+/g, '').includes(query)));
+    const visible = items.filter((item) => (!year || item.year === year) && (!query || normalize(`${item.title} ${item.cite}`).includes(query)));
     if (!visible.length) return '';
     shown += visible.length;
     return `
@@ -119,6 +119,12 @@ renderPublications();
 
 const mobileMenu = document.querySelector('.mobile-menu');
 mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { mobileMenu.open = false; }));
+if (mobileMenu) {
+  const menuToggle = mobileMenu.querySelector('summary');
+  mobileMenu.addEventListener('toggle', () => menuToggle.setAttribute('aria-label', mobileMenu.open ? '메뉴 닫기' : '메뉴 열기'));
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && mobileMenu.open) { mobileMenu.open = false; menuToggle.focus(); } });
+  document.addEventListener('pointerdown', (event) => { if (mobileMenu.open && !mobileMenu.contains(event.target)) mobileMenu.open = false; }); // iOS는 일반 영역 탭에 click을 안 보냄
+}
 
 const revealItems = document.querySelectorAll('.reveal');
 const reveal = (element, index = 0) => {

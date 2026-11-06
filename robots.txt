@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://satecslab.kau.ac.kr/sitemap.xml

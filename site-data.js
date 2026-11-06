@@ -477,7 +477,7 @@ const publications = {
   {
    "id": "pub-2021-dom-01-adaptive-cs-drone-sar-concealed-target",
    "title": "적응형 압축센싱 기반의 드론 SAR 시스템을 이용한 저피탐 은폐물 탐지",
-   "cite": "천형일, 조휘정, 반인모, 이우경 · 한국전자파학회논문지, 제32권 11호, 2021년 12월",
+   "cite": "천형일, 조휘정, 반인모, 이우경 · 한국전자파학회논문지, 제32권 11호, 2021년 11월",
    "year": "2021",
    "doi": "10.5515/KJKIEES.2021.32.11.990",
    "url": "https://doi.org/10.5515/KJKIEES.2021.32.11.990",

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>페이지를 찾을 수 없습니다 | SATECS Radar Lab.</title>
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#151b26" />
+    <link rel="icon" type="image/png" href="/newicon1_1.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/fonts/pretendard/pretendardvariable-dynamic-subset.min.css" />
+    <link rel="stylesheet" href="/styles.css?v=20261106-audit2-v1" />
+    <script>
+      // 옛 Google Sites 주소로 들어오면 새 사이트의 같은 내용으로 보낸다(GitHub Pages는 없는 주소에 이 파일을 돌려준다).
+      (() => {
+        const old = {
+          'home': '/', '연구실-소개': '/#introduction', '지도-교수': '/#members', '연구실-수행-과제': '/#projects',
+          '강의': '/#lectures', 'contact-us': '/#contact', 'services': '/#research',
+          'services/차세대-sar-국방-특화실': '/research/topic-01-nextgen-sar.html',
+          'services/고품질-sar-영상-레이다-및-신호처리': '/research/topic-02-sar-imaging-radar.html',
+          'services/우주위성전자-시스템': '/research/topic-03-space-satellite-electronics.html',
+          'services/레이다-시스템-및-신호처리': '/research/topic-04-radar-systems-signal-processing.html',
+          'services/레이다-기계학습': '/research/topic-05-drone-detection-radar-ml.html',
+          'services/캔-위성-제작': '/research/topic-06-cansat.html',
+        };
+        let path = location.pathname;
+        try { path = decodeURIComponent(path); } catch (error) { /* 잘못된 인코딩은 그대로 둔다 */ }
+        const target = old[path.replace(/^\/+|\/+$/g, '')];
+        if (target) location.replace(target);
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="KOREA AEROSPACE UNIVERSITY SATECS Radar Lab. 홈">
+          <img src="/newicon1_1.png" alt="SATECS 공식 아이콘" />
+          <span class="brand-university">KOREA AEROSPACE UNIVERSITY</span>
+        </a>
+      </div>
+    </header>
+    <main id="main-content" class="detail-page">
+      <article class="container detail">
+        <p class="eyebrow">404</p>
+        <h1>페이지를 찾을 수 없습니다</h1>
+        <p>주소가 바뀌었거나 없는 페이지입니다. 연구실 홈페이지는 2026년 11월에 새로 바뀌었습니다.</p>
+        <ul>
+          <li><a href="/">새 홈페이지 첫 화면으로</a></li>
+          <li><a href="/#research">연구 분야</a> · <a href="/#projects">연구 과제</a> · <a href="/#publications">연구실적</a> · <a href="/#members">구성원</a> · <a href="/#contact">연락처</a></li>
+          <li><a href="https://sites.google.com/kau.ac.kr/satecs" target="_blank" rel="noopener">이전 홈페이지(Google Sites) 보기 ↗</a></li>
+        </ul>
+      </article>
+    </main>
+  </body>
+</html>
